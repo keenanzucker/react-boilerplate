@@ -15,7 +15,7 @@ var options = {
 var auth;
 var db;
 
-db = mongoose.connect('mongodb://localhost/'); // TODO Add localhost database name here
+db = mongoose.connect('mongodb://localhost/looklook');
 console.log('Connected to local database');
 
 mongoose.connection.on('error', function(e) {
