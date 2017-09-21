@@ -61,4 +61,76 @@ cardSchema.statics.setHabitat = function(id, habitat, cb) {
     );
 };
 
+cardSchema.statics.setLifespan = function(id, lifespan, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {lifespan: lifespan}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update lifespan on card', id, lifespan, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setDomain = function(id, domain, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {domain: domain}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update domain on card', id, domain, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setTrophicLevel = function(id, trophicLevel, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {trophicLevel: trophicLevel}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update trophicLevel on card', id, trophicLevel, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setName = function(id, name, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {name: name}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update name on card', id, name, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setTitle = function(id, title, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {title: title}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update title on card', id, title, err);
+            cb(card);
+        }
+    );
+};
+
+cardSchema.statics.setDescription = function(id, description, cb) {
+    this.findByIdAndUpdate(
+        id,
+        {$set: {description: description}},
+        {$safe: true, upsert: false, new: true},
+        (err, card) => {
+            if (err) return console.error('Could not update description on card', id, description, err);
+            cb(card);
+        }
+    );
+};
+
 module.exports = mongoose.model('Card', cardSchema);
